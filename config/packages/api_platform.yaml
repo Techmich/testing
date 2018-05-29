@@ -1,0 +1,5 @@
+api_platform:
+    title: 'API Vente 2'
+    description: "Plateforme destiné à fournir des données à d'autres application"
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
