@@ -1,8 +1,11 @@
 {
     "devDependencies": {
         "@symfony/webpack-encore": "^0.19.0",
+        "bootstrap": "^4.1.1",
+        "jquery": "^3.3.1",
         "node-sass": "^4.9.0",
-        "sass-loader": "^7.0.1"
+        "sass-loader": "^7.0.1",
+        "startbootstrap-modern-business": "^4.0.0"
     },
     "license": "UNLICENSED",
     "private": true,
