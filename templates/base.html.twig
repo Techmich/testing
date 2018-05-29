@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <!-- css -->
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <!-- header -->
+        {% include "inc/header.inc.html.twig" %}
+
+        <!-- body -->
         {% block body %}{% endblock %}
+
+        <!-- footer -->
+        {% include "inc/header.inc.html.twig" %}
+
+        <!-- js -->
         {% block javascripts %}{% endblock %}
     </body>
 </html>
