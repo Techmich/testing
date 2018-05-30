@@ -3,10 +3,17 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use App\Entity\Theater;
+use App\Entity\Ticket;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ShowRepository")
+ * @ORM\Table(name="shows")
+ * @ApiResource
  */
 class Show
 {
@@ -43,11 +50,6 @@ class Show
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $salle;
-
-    /**
      * @Assert\Blank()
      * @Assert\Url()
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -66,12 +68,27 @@ class Show
     private $close;
 
     /**
+     * @var Theater
+     *
+     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Theater", inversedBy="shows")
+     */
+    private $theater;
+
+    /**
+     * @var Ticket[] Available tickets for this show.
+     *
+     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="show")
+     */
+    private $tickets;
+
+    /**
      * Show constructor.
-     * @param $id
      */
     public function __construct()
     {
         $this->close = false;
+        $this->shows = new ArrayCollection();
     }
 
     public function getId()
@@ -127,18 +144,6 @@ class Show
         return $this;
     }
 
-    public function getSalle(): ?int
-    {
-        return $this->salle;
-    }
-
-    public function setSalle(int $salle): self
-    {
-        $this->salle = $salle;
-
-        return $this;
-    }
-
     public function getUrl(): ?string
     {
         return $this->url;
@@ -173,5 +178,29 @@ class Show
         $this->close = $close;
 
         return $this;
+    }
+
+    /**
+     * @return Theater
+     */
+    public function getTheater(): Theater
+    {
+        return $this->theater;
+    }
+
+    /**
+     * @param Theater $theater
+     */
+    public function setTheater(Theater $theater): void
+    {
+        $this->theater = $theater;
+    }
+
+    /**
+     * @return Collection|Ticket[]
+     */
+    public function getShows(): Collection
+    {
+        return $this->tickets;
     }
 }
