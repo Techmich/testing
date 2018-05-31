@@ -25,7 +25,7 @@
                                 <small>{{ show.date | date("l d F - H:i") }}</small>
                             </h4>
                             <p class="card-text">
-                                {{ show.description | truncate(150) }}<br>
+                                {{ show.description | truncate(100) }}<br>
                                 <a href="{{ path('show_detail', {'id': show.id }) }}">Plus de détails</a>
                             </p>
                         </div>
