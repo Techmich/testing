@@ -1,0 +1,13 @@
+api_platform:
+    title: 'API Vente 2'
+    description: "Plateforme destiné à fournir des données à d'autres application"
+    formats:
+#      jsonld:  ['application/ld+json']
+#      jsonhal: ['application/hal+json']
+#      xml:     ['application/xml', 'text/xml']
+      json:    ['application/json']
+#      yaml:    ['application/x-yaml']
+#      csv:     ['text/csv']
+      html:    ['text/html']
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
