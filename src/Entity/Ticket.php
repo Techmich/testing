@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Show;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
+use Endroid\QrCode\QrCode;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TicketRepository")
@@ -49,6 +50,12 @@ class Ticket
     private $status;
 
     /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
+    /**
      * Ticket constructor.
      * @param $id2
      */
@@ -57,7 +64,6 @@ class Ticket
         $this->id2 = Uuid::uuid4();
         $this->status = self::NONE;
     }
-
 
     public function getId()
     {
@@ -100,6 +106,18 @@ class Ticket
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
