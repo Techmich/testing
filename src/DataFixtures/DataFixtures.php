@@ -54,7 +54,7 @@ class DataFixtures extends Fixture
 
         $show->setTitle('Spectacle_'. $i);
         $show->setArtist('Willy kouagnia '. $i);
-        $show->setDate($date->add(new \DateInterval('P1D')));
+        $show->setDate($date);
         $show->setDescription('Equitis Romani autem esse filium criminis loco poni 
             ab accusatoribus neque his iudicantibus oportuit neque defendentibus nobis. Nam quod 
             de pietate dixistis, est quidem ista nostra existimatio, sed iudicium certe parentis; 
@@ -68,6 +68,7 @@ class DataFixtures extends Fixture
     private function getTicket(Show $show):Ticket
     {
         $ticket = new Ticket();
+        $ticket->setPrice(20.00);
         $ticket->setShow($show);
         return $ticket;
     }

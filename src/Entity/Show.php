@@ -151,7 +151,8 @@ class Show
 
     public function setUrl(?string $url): self
     {
-        $this->url = $url;
+        if($this->image != null)
+            $this->url = $url;
 
         return $this;
     }
@@ -163,7 +164,8 @@ class Show
 
     public function setImage(?string $image): self
     {
-        $this->image = $image;
+        if($this->url != null)
+            $this->image = $image;
 
         return $this;
     }
