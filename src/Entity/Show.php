@@ -201,7 +201,7 @@ class Show
     /**
      * @return Collection|Ticket[]
      */
-    public function getShows(): Collection
+    public function getTickets(): Collection
     {
         return $this->tickets;
     }
