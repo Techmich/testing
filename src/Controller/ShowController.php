@@ -3,29 +3,38 @@
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
+use phpDocumentor\Reflection\Types\Integer;
+use App\Entity\Ticket;
+use App\Service\TicketService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Show;
 
-/**
- * @Route("/show")
- */
+
 class ShowController extends Controller
 {
-    /**
-     * @Route("/{id}", name="show_detail")
-     */
-    public function detail($id)
+    private $ticketService;
+
+    public function __construct(TicketService $ticketService)
     {
-        $show = $this->getDoctrine()->getRepository(Show::class)->find($id);
+        $this->ticketservice = $ticketService;
+    }
 
-        if (!$show) {
-            throw $this->createNotFoundException(
-                'No show found'
-            );
-        }
+    /**
+     * Update ticket to reserved
+     *
+     * @param $id
+     * @return Ticket
+     */
+    public function __invoke(Show $show): Show
+    {
+//        $ticket = $this->ticketService->reserved($id);
+//
+//        if (!$ticket) {
+//            throw $this->createNotFoundException(
+//                'No show ticket'
+//            );
+//        }
 
-        return $this->render('show/detail.html.twig', [
-            'show' => $show,
-        ]);
+        return $show;
     }
 }
