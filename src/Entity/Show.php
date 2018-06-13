@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -79,6 +80,7 @@ class Show
      * @var Ticket[] Available tickets for this show.
      *
      * @ORM\OneToMany(targetEntity="Ticket", mappedBy="show")
+     * @ApiSubresource
      */
     private $tickets;
 
