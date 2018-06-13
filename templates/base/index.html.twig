@@ -4,19 +4,7 @@
 
 {% block body %}
     <div class="container">
-        <div class="text-center">
-            <h3 class="my-4">Bienvenue sur vente 2!</h3>
-        </div>
-
-        <ul>
-            {% for show in shows %}
-                <li>
-                    <a href="{{ path('show_detail', {'id': show.id }) }}">{{ show.id }} {{ show.title }}</a>
-                    <small>{{ show.date | date("l d F - H:i") }}</small>
-                </li>
-            {% endfor %}
-        </ul>
-        <!-- /.row -->
+        <p style="text-align: center">Welcome to API vente 2</p>
 
     </div>
     <!-- /.container -->
