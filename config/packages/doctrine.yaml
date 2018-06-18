@@ -6,21 +6,16 @@ parameters:
     env(DATABASE_URL): ''
 
 doctrine:
-    dbal:mysql://b0d2fc33e4fbd0:d0bd9df5@us-cdbr-iron-east-04.cleardb.net/heroku_ba370093c333adf?reconnect=true
+    dbal:
         # configure these for your database server
-        dbname: heroku_ba370093c333adf
-        host: us-cdbr-iron-east-04.cleardb.net
-        port: 3306
-        user: b0d2fc33e4fbd0
-        password: d0bd9df5
-        driver: 'pdo_mysql'
+        driver: 'pdo_sqlite'
         server_version: '5.7'
         charset: utf8mb4
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
 
-        #url: '%env(resolve:DATABASE_URL)%'
+        url: '%env(resolve:DATABASE_URL)%'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
